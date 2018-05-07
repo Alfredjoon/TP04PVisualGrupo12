@@ -37,6 +37,6 @@ public class Temperatura implements Serializable{
     return ((5*(grado-32))/9)+273.15;
     }
     public double conversorGradosFahrenheit(){
-    return grado;
+    return 1.8 *grado +32;
     }
 }

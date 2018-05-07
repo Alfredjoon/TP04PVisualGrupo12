@@ -12,15 +12,19 @@ import java.io.Serializable;
  * @author Alfred
  */
 public class Numero implements Serializable{
-    
-    private int numero;
+    private int num;
 
-    public int getNumero() {
-        return numero;
+    public Numero() {
     }
 
-    public void setNumero(int numero) {
-        this.numero = numero;
+    public int getNum() {
+        return num;
     }
+
+    public void setNum(int num) {
+        this.num = num;
+    }
+  
+
     
 }

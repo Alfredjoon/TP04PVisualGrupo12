@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+ 
+        <h:body>
+        <p:panel id="pnlCalculadora" header="Aplicacion Calculadora">
+            <h:form id="frmCalculadora">
+                <h:panelGrid id="tblCalculadora" columns="2">
+                    <p:outputLabel id="lblNumeroA" value="Ingrese el número 1:" />
+                    <p:inputNumber id="txtNumeroA" decimalPlaces="2" 
+                                   thousandSeparator="." decimalSeparator=","
+                                   value="#{calculadoraManagedBean.numero1}"/>
+                    
+                    <p:outputLabel id="lblNumeroB" value="Ingrese el número 2:"/>
+                    <p:inputNumber id="txtNumeroB" decimalPlaces="2" 
+                                   thousandSeparator="." decimalSeparator=","
+                                   value="#{calculadoraManagedBean.numero2}"/>
+                    
+                    <p:outputLabel/>
+                    <p:toolbar>
+                        <f:facet name="left">
+                    <p:commandButton id="btnCalcularSuma" value="SUMAR"
+                                     update="lblValorResultadoSuma"/>
+                    
+                    <p:outputLabel id="lblResultadoSuma" value="Suma:"/>
+                    <p:outputLabel id="lblValorResultadoSuma" 
+                                   value="#{calculadoraManagedBean.sumar()}"/>
+                    
+                    <p:commandButton id="btnCalcularResta" value="RESTAR"
+                                     update="lblValorResultadoSuma"/>
+                   
+                    <p:outputLabel id="lblResultadoResta" value="Resta:"/>
+                    <p:outputLabel id="lblValorResultadoResta" 
+                                   value="#{calculadoraManagedBean.restar()}"/>
+                    
+                    <p:commandButton id="btnCalcularMultiplicar" value="MULTIPLICAR"
+                                     update="lblValorResultadoMultiplicar"/>
+                    
+                    <p:outputLabel id="lblResultadoMultiplicar" value="Multiplicacion:"/>
+                    <p:outputLabel id="lblValorResultadoMultiplicar" 
+                                   value="#{calculadoraManagedBean.multiplicar()}"/>
+                    
+                    <p:commandButton id="btnCalcularDividir" value="DIVIDIR"
+                                     update="lblValorResultadoDividir"/>
+                    
+                    <p:outputLabel id="lblResultadoDividir" value="Division:"/>
+                    <p:outputLabel id="lblValorResultadoDividir" 
+                                   value="#{calculadoraManagedBean.dividir()}"/>
+                    
+                    <p:commandButton id="btnCalcularPotencia" value="POTENCIA"
+                                     update="lblValorResultadoPotencia"/>
+                    
+                    <p:outputLabel id="lblResultadoPotencia" value="Potencia:"/>
+                    <p:outputLabel id="lblValorResultadoPotencia" 
+                                   value="#{calculadoraManagedBean.calcularpotencia()}"/>
+                    </f:facet>
+                    </p:toolbar>
+                    
+                </h:panelGrid>
+            </h:form>
+        </p:panel>
+    </h:body>
+   
+</html>
+
