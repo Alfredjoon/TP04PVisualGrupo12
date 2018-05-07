@@ -2,25 +2,29 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
-    <h:head>
-        <title>Punto 02 Agregar Lista</title>
-    </h:head>
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
     <h:body>
-       <h:form>
-            <h:outputLabel value="Ingrese Valor"/>
-            <h:inputText value="#{numeroManageBeans.num.num}"/>
-            <h:commandButton  value="Agregar numero" action="#{numeroManageBeans.agregarNumero()}" />
-            <p:dataTable id="dtNumero" value="#{numeroManageBeans.lista}" var="tabla">
-                
-               
-                <p:column headerText="Numero">
-                <p:outputLabel value="#{tabla.num}"/>
-                </p:column>
-            </p:dataTable>
-            
-            
-        </h:form>
+
+        <ui:composition template="./Template/template.xhtml">
+            <ui:define name="content">
+                <h:form>           
+                    <h:outputLabel value="Ingrese Valor"/>
+                    <h:inputText value="#{numeroManageBeans.num.num}"/>
+                    <h:commandButton  value="Agregar numero" action="#{numeroManageBeans.agregarNumero()}" />
+                    <p:dataTable id="dtNumero" value="#{numeroManageBeans.lista}" var="tabla">
+
+
+                        <p:column headerText="Numero">
+                            <p:outputLabel value="#{tabla.num}"/>
+                        </p:column>
+                    </p:dataTable>
+
+
+                </h:form>
+            </ui:define>
+        </ui:composition> 
     </h:body>
 </html>
 

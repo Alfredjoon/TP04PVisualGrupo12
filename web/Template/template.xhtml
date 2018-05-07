@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="./css/default.css"/>
+        <h:outputStylesheet name="./css/cssLayout.css"/>
+        <title>TP4-2018-G12</title>
+    </h:head>
+
+    <h:body>
+
+        <div id="top">
+            <ui:insert name="top">
+                <h1 style="font-size: 100px; text-align: center; color: beige">Trabajo Practico Nº4</h1>
+            </ui:insert>
+        </div>
+        <div>
+            <div id="left">
+                <ui:insert name="left">
+                    <h:form>
+                        <p:panelMenu>
+                            <p:submenu label="Trabajo Practico 4">
+                                <p:submenu label="Punto 1">
+                                    <p:menuitem value="Conversor de Temperaturas"
+                                                url="faces/Punto01Index.xhtml"/>                                    
+                                </p:submenu>
+                                <p:submenu label="Punto 2">
+                                    <p:menuitem value="Registro de números"
+                                                 url="faces/Punto02Index.xhtml"/>                                    
+                                </p:submenu>
+                                <p:submenu label="Punto 3">
+                                    <p:menuitem value=" Calculadora de números reales"
+                                                url="faces/Punto03Index.xhtml"/>                                    
+                                </p:submenu>
+                                <p:submenu label="Punto 4">
+                                    <p:menuitem value="El Juego ahorcado"
+                                                url="faces/Punto04Index.xhtml"/>                                    
+                                </p:submenu>
+                                <p:submenu label="Punto 5">
+                                    <p:menuitem value="Alta profesor "
+                                                url="faces/Punto05Index.xhtml"/>                                    
+                                </p:submenu>
+                                <p:submenu label="Punto 6">
+                                    <p:menuitem value=" Visualizar Autos y Modificacion"
+                                                url="faces/Punto06Index.xhtml"/>                                    
+                                </p:submenu>
+                                <p:submenu label="Punto 7">
+                                    <p:menuitem value="Alta Libro"
+                                                url="faces/Punto07Index.xhtml"/>                                    
+                                </p:submenu>
+                                <p:submenu label="Punto 8">
+                                    <p:menuitem value="Busqueda de Libro"
+                                                url="faces/Punto08Index.xhtml"/>                                    
+                                </p:submenu>
+                            </p:submenu>
+                        </p:panelMenu>
+                    </h:form>
+                </ui:insert>
+            </div>
+            <div>
+                <div id="right">
+                    <ui:insert name="right"></ui:insert>
+                </div>
+                <div id="content" class="right_content">
+                    <ui:insert name="content">
+
+                    </ui:insert>
+                </div>
+            </div>
+        </div>
+        <div id="bottom" style="text-align: center;">
+            <ui:insert name="bottom">
+                <p:outputLabel  id="lblInfo" value="©Programación Visual 2018 - Diaz Victor Hugo, Rearte Daniel, Mamani Ramon - S.S. de Jujuy - Jujuy - Argentina"/>    
+            </ui:insert>
+        </div>
+
+    </h:body>
+
+</html>
