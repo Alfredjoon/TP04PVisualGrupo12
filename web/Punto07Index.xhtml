@@ -1,14 +1,52 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <body>
 
         <ui:composition template="./Template/template.xhtml">
 
             <ui:define name="content">
-               Momentito por favor...
+                <h:form>           
+                    <p:panelGrid columns="2">
+                        <p:outputLabel value="ISBM"/>
+                        <p:inputText value="#{libroManagedBean.ISBM}"/>
+                        <p:outputLabel value="Titulo"/>
+                        <p:inputText value="#{libroManagedBean.titulo}"/>
+                        <p:outputLabel value="Autor"/>
+                        <p:selectOneMenu value="#{libroManagedBean.idAutor}">
+                            <f:selectItems value="#{libroManagedBean.autores}" var="a" itemLabel="#{a.nombre} #{a.apellido}" itemValue="#{a.id}"/> 
+                        </p:selectOneMenu>
+                        <p:outputLabel value="Categoria"/>
+                        <p:inputText value="#{libroManagedBean.categoria}"/>
+                        <p:outputLabel value="Precio"/>
+                        <p:inputNumber value="#{libroManagedBean.precio}"/>
+                        <h:commandButton  value="Agregar numero" action="#{libroManagedBean.crearLibro()}" />
+                    </p:panelGrid>
+                    <p:dataTable id="dtLibro" value="#{libroManagedBean.libros}" var="tabla">
+                        <p:column headerText="ISBM">
+                            <p:outputLabel value="#{tabla.ISBM}"/>
+                        </p:column>
+                        <p:column headerText="Titulo">
+                            <p:outputLabel value="#{tabla.titulo}"/>
+                        </p:column>
+                        <p:column headerText="Autor">
+                            <p:outputLabel value="#{tabla.autor.nombre} #{tabla.autor.apellido}"/>
+                        </p:column>
+                        <p:column headerText="Categoria">
+                            <p:outputLabel value="#{tabla.categoria}"/>
+                        </p:column>
+                        <p:column headerText="Precio">
+                            <p:outputLabel value="#{tabla.precio}"/>
+                        </p:column>
+                    </p:dataTable>
+
+
+                </h:form>
             </ui:define>
 
         </ui:composition>
