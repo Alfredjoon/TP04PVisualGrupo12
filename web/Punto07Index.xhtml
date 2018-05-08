@@ -25,7 +25,7 @@
                         <p:inputText value="#{libroManagedBean.categoria}"/>
                         <p:outputLabel value="Precio"/>
                         <p:inputNumber value="#{libroManagedBean.precio}"/>
-                        <h:commandButton  value="Agregar numero" action="#{libroManagedBean.crearLibro()}" />
+                        <p:commandButton  value="Agregar Libro" actionListener="#{libroManagedBean.crearLibro()}" update="dtLibro" />
                     </p:panelGrid>
                     <p:dataTable id="dtLibro" value="#{libroManagedBean.libros}" var="tabla">
                         <p:column headerText="ISBM">

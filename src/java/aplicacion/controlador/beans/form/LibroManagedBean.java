@@ -23,14 +23,16 @@ public class LibroManagedBean {
     private Libro libro;
     private Autor autor;
     private int idAutor;
+    private int idAutorBuscado;
     private List<Libro> libros;
     private List<Autor> autores;
+    List<Libro> librosBuscados;
     private String ISBM, titulo, categoria;
     private double precio;
     
     public LibroManagedBean() {
         libros = new ArrayList();
-        autores = new ArrayList();
+        autores = new ArrayList();        
         autores.add(new Autor(1,"Jorge Luis", "Borges"));
         autores.add(new Autor(2,"Ernesto", "Sabato"));
         autores.add(new Autor(3,"George", "orwell"));
@@ -52,6 +54,15 @@ public class LibroManagedBean {
     
     public void agregarLibro(){
        libros.add(libro);
+    }
+    public void buscarPorAutor(){        
+        librosBuscados = new ArrayList<>();
+        for(Libro l : libros){
+            if(idAutorBuscado == l.getAutor().getId()){
+                librosBuscados.add(l);
+            }
+        }
+        
     }
     
     public Libro getLibro() {
@@ -126,6 +137,22 @@ public class LibroManagedBean {
 
     public void setIdAutor(int idAutor) {
         this.idAutor = idAutor;
+    }
+
+    public int getIdAutorBuscado() {
+        return idAutorBuscado;
+    }
+
+    public void setIdAutorBuscado(int idAutorBuscado) {
+        this.idAutorBuscado = idAutorBuscado;
+    }
+
+    public List<Libro> getLibrosBuscados() {
+        return librosBuscados;
+    }
+
+    public void setLibrosBuscados(List<Libro> librosBuscados) {
+        this.librosBuscados = librosBuscados;
     }
     
     
