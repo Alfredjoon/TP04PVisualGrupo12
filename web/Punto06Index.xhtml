@@ -1,20 +1,79 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-
-    <body>
-
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
         <ui:composition template="./Template/template.xhtml">
-
             <ui:define name="content">
-                 Momentito por favor...
+         <p:panel>
+            <h:form id="frmAuto">
+                <p:dataTable id="tblAutos"
+                             value="#{autoFormBean.listaAutos}"
+                             var="auto">
+                    
+                    <p:column headerText="Patente">
+                        <p:outputLabel id="lblPatente" value="#{auto.patente}"/>
+                        <p:outputLabel id="lblId" value="#{auto.id}" style=" visibility: hidden;"/>
+                    </p:column> 
+                    <p:column headerText="Marca">
+                        <p:outputLabel id="lblMarca" value="#{auto.marca}"/>
+                    </p:column> 
+                    <p:column headerText="Color">
+                        <p:outputLabel id="lblColor" value="#{auto.color}"/>
+                    </p:column> 
+                    <p:column headerText="Modelo">
+                        <p:outputLabel id="lblModelo" value="#{auto.modelo}"/>
+                    </p:column> 
+                    <p:column headerText="T. Combustible">
+                        <p:outputLabel id="lblTComb" value="#{auto.tipComb}"/>                        
+                    </p:column> 
+                    <p:column headerText="Acciones">
+                        
+                        <p:commandButton id="btnModificar"
+                                         value="Modificar"
+                                         actionListener="#{autoFormBean.asignarAuto(auto)}"
+                                         update=":dlgModificar"
+                                         oncomplete="PF('dlgModificaAuto').show()"/>
+                    </p:column>
+                </p:dataTable>
+            </h:form>
+        </p:panel>
+        
+        <p:dialog id="dlgModificar"
+                  header="Modificar Auto"
+                  modal="true"
+                  widgetVar="dlgModificaAuto">
+            <h:form id="frmModificar">
+                <h:panelGrid id="tblModificar" columns="2">    
+                    <p:inputText id="lblId" value="#{autoFormBean.auto.id}" style=" visibility: hidden;"/>
+                    <p:outputLabel/>
+                    <p:outputLabel for="txtPatente" value="Patente"/>                    
+                    <p:inputText id="txtPatente" value="#{autoFormBean.auto.patente}"/>
+                    <p:outputLabel for="txtMarca" value="Marca"/>
+                    <p:inputText id="txtMarca" value="#{autoFormBean.auto.marca}"/>
+                    <p:outputLabel for="txtColor" value="Color"/>
+                    <p:inputText id="txtColor" value="#{autoFormBean.auto.color}"/>
+                    <p:outputLabel for="txtModelo" value="Modelo"/>
+                    <p:inputText id="txtModelo" value="#{autoFormBean.auto.modelo}"/>
+                    <p:outputLabel for="txtTipComb" value="T. Combustible"/>
+                    <p:inputText id="txtTipComb" value="#{autoFormBean.auto.tipComb}"/>
+                    <br></br>
+                    <p:outputLabel/>
+                    <p:commandButton id="btnModificar"
+                                     value="Guardar"
+                                     actionListener="#{autoFormBean.actualizar(autoFormBean.auto)}"
+                                     update=":frmAuto"
+                                     oncomplete="PF('dlgModificaAuto').hide()"/>
+                </h:panelGrid>
+            </h:form>
+        </p:dialog>
             </ui:define>
-
-        </ui:composition>
-
-    </body>
+            </ui:composition>
+    </h:body>
 </html>
+
